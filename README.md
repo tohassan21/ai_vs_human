@@ -8,6 +8,7 @@
   - [**Objective**](#objective)
   - [**Team Members**](#team-members)
   - [**Dataset**](#dataset)
+  - [**Technologies / Dependencies Needed and Used**](#technologies--dependencies-needed-and-used)
   - [**Installation**](#installation)
   - [**Sources**](#sources)
   - [**License**](#license)
@@ -31,6 +32,15 @@ This project aims to build a supervised learning model that can identify whether
 We're using [dataset name] from Kaggle, which contains [X] AI-generated images and [Y] human-created images
 
 Due to size limitations, the dataset is not stored directly in this repository. See the "Installation" section for instructions on how to obtain and set up the dataset
+
+## **Technologies / Dependencies Needed and Used**
+- **matplotlib**: A popular Python library for creating static, animated, and interactive visualizations. Used for plotting graphs, charts, and **visualizing model performance** in the project.
+
+- **pandas**:  A powerful data analysis and manipulation library. Used for handling, cleaning, and transforming datasets efficiently.
+- **os**: A built-in Python module for interacting with the operating system. Used for file and directory operations, such as reading and managing paths.
+- **numpy**: A fundamental package for numerical computing in Python. Used for handling arrays, mathematical operations, and efficient data processing.
+- **TensorFlow/Keras**: A deep learning framework used for building and training convolutional neural networks (CNNs). Includes modules for model architecture (Sequential, models), layers (Conv2D, MaxPooling2D, Flatten, Dense), dataset handling (image_dataset_from_directory), and pretrained models (Xception for transfer learning).
+
 
 ## **Installation**
 
