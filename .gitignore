@@ -174,7 +174,12 @@ cython_debug/
 .pypirc
 
 # Training images
-/Resources/TrainingImages/
+*.Resources
+# /Resources/TrainingImages/
 
-model_01.h5
-model_01.keras
+# model_01.h5
+# model_01.kerasResources/
+Resources/model_01.h5
+Resources/model_01.keras
+Resources/test_data_v2/
+Resources/train_data/
