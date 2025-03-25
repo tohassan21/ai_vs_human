@@ -178,4 +178,5 @@ cython_debug/
 /Resources/TestingImages/*/*
 
 *.h5
+!model_04.h5
 *.keras
