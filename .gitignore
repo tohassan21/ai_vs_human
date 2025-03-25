@@ -173,11 +173,9 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# Training images
-/Resources/TrainingImages/
-/Resources/TestingImages/
+# Image File structure
+/Resources/TrainingImages/*/*
+/Resources/TestingImages/*/*
 
 *.h5
 *.keras
-
-RemoveLater.ipynb
