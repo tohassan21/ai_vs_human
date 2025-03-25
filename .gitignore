@@ -175,6 +175,9 @@ cython_debug/
 
 # Training images
 /Resources/TrainingImages/
+/Resources/TestingImages/
 
-model_01.h5
-model_01.keras
+*.h5
+*.keras
+
+RemoveLater.ipynb
