@@ -36,13 +36,19 @@ We're using [datasets/alessandrasala79/ai-vs-human-generated-dataset](https://ww
 Due to size limitations, the dataset is not stored directly in this repository. See the "Installation" section for instructions on how to obtain and set up the dataset
 
 ## **Technologies / Dependencies Needed and Used**
+- **Python**: 3.10.15 - The programming language used for the project.
 - **matplotlib**: A popular Python library for creating static, animated, and interactive visualizations. Used for plotting graphs, charts, and **visualizing model performance** in the project.
 
 - **pandas**:  A powerful data analysis and manipulation library. Used for handling, cleaning, and transforming datasets efficiently.
 - **os**: A built-in Python module for interacting with the operating system. Used for file and directory operations, such as reading and managing paths.
-- **numpy**: A fundamental package for numerical computing in Python. Used for handling arrays, mathematical operations, and efficient data processing.
-- **TensorFlow/Keras**: A deep learning framework used for building and training convolutional neural networks (CNNs). Includes modules for model architecture (Sequential, models), layers (Conv2D, MaxPooling2D, Flatten, Dense), dataset handling (image_dataset_from_directory), and pretrained models (Xception for transfer learning).
-- **Flask**: A lightweight web framework in Python used for creating web applications and APIs. In deep learning projects, it's often used to build RESTful APIs for serving trained models, handling image uploads, and returning predictions to users through a web interface.
+- **numpy**: A fundamental package for numerical computing in Python. Used for handling arrays, mathematical operations, and efficient data processing. **(Version: 1.26.4)**
+- **TensorFlow/Keras**: A deep learning framework used for building and training convolutional neural networks (CNNs). Includes modules for model architecture (Sequential, models), layers (Conv2D, MaxPooling2D, Flatten, Dense), dataset handling (image_dataset_from_directory), and pretrained models (Xception for transfer learning). **(Version: 2.19.0)**
+- **Flask**: A lightweight web framework in Python used for creating web applications and APIs. In deep learning projects, it's often used to build RESTful APIs for serving trained models, handling image uploads, and returning predictions to users through a web interface. **(Version: 3.0.3)**
+- **gunicorn**: A Python WSGI HTTP server for UNIX. It's used to serve Flask applications in a production environment, providing better performance and scalability compared to the built-in Flask server. **(Version: 23.0.0)**
+- **pillow**: A Python Imaging Library (PIL) fork that adds image processing capabilities to your Python interpreter. Used for opening, manipulating, and saving various image file formats, particularly useful for preprocessing images before feeding them into a model. **(Version: 10.4.0)**
+- **boto3**: The Amazon Web Services (AWS) SDK for Python. It allows Python developers to write software that makes use of services like Amazon S3 and Amazon SageMaker, facilitating data storage and model deployment. **(Version: 1.34.71)**
+- **python-dotenv**: A library that reads key-value pairs from a .env file and adds them to the environment variables. This is useful for managing configuration settings, such as API keys or database URLs, without hardcoding them into your application. **(Version: 1.0.1)**
+- **werkzeug**: A comprehensive WSGI web application library. It is used by Flask and provides utilities for building web applications, including request and response handling, routing, and debugging. **(Version: 3.0.3)**
 
 
 ## **Installation**
@@ -69,9 +75,14 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 **Figure 5:** Known Human image 2
 
 
-
 ## **Sources**
-[Kaggle ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download)
+[Kaggle ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download) 
+- Office Hours
+- Xpert Learning Assistant
+- Tutor Sessions
+- Documentation from [**Technologies / Dependencies Needed and Used**](#technologies--dependencies-needed-and-used)
+- ChatGPT
+- Google
 
 ## **Links**
 [User Flask Interface 📡](https://app-flask-xception-7d7b178928d0.herokuapp.com/)  
