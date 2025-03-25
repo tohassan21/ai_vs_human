@@ -76,11 +76,11 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 
 
 ## **Sources**
-[Kaggle ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download) 
+- [Kaggle ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download) 
 - Office Hours
-- Xpert Learning Assistant
-- Tutor Sessions
 - Documentation from [**Technologies / Dependencies Needed and Used**](#technologies--dependencies-needed-and-used)
+- Tutor Sessions
+- Xpert Learning Assistant
 - ChatGPT
 - Google
 
