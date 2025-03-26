@@ -52,28 +52,45 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 
 
 ## **Installation**
+1. Clone the repository
+2. Download the entire data file from [datasets/alessandrasala79/ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download)
+3. Create a Resources folder
+    - Upload the test.csv and train.csv here
+    - Upload the train_data folder here and rename it to TrainingImages
+4. Run the image_classifier.ipynb (This will take a few hours)
+5. Use the model_03.h5 model to test the data
+6. To test user images go to [User Flask Interface ](https://app-flask-xception-7d7b178928d0.herokuapp.com/)
 
 ## **Visualizations**
 <img src="Images/Flask_app.png" width="500" />  
 
-**Figure 1:** Screenshot of the Flask web interface used for image upload and prediction.
+**Figure 1:** Screenshot of the Flask web interface used for image upload and prediction.  
+<hr style="border: 2px solid #4FA3D1; width: 100%; margin: auto;">
+<br><br>
 
 <img src="Images/AI_images/0a79f72b0fa044eb855856a4b91bfeab.jpg" width="500" />  
 
-**Figure 2:** Known AI image 1
+**Figure 2:** Known AI image 1  
+<hr style="border: 2px solid #4FA3D1; width: 100%; margin: auto;">
+<br><br>
 
 <img src="Images/AI_images/ffdc4dff2a6f47638a0541651649dcf7.jpg" width="500" />  
 
 **Figure 3:** Known AI image 2
+<hr style="border: 2px solid #4FA3D1; width: 100%; margin: auto;">
+<br><br>
 
 <img src="Images/Human_Images/0a0cb4cf26d7426ca6ab81fe427bd922.jpg" width="500" />  
 
 **Figure 4:** Known Human image 1
+<hr style="border: 2px solid #4FA3D1; width: 100%; margin: auto;">
+<br><br> 
 
 <img src="Images/Human_Images/0a0f49fd5af340628e76b5c96a734c49.jpg" width="500" />  
 
 **Figure 5:** Known Human image 2
-
+<hr style="border: 2px solid #4FA3D1; width: 100%; margin: auto;">
+<br><br>
 
 ## **Sources**
 - [Kaggle ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download) 
