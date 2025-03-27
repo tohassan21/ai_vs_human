@@ -177,8 +177,14 @@ cython_debug/
 /Resources/TrainingImages/*/*
 /Resources/TestingImages/*/*
 
-# Ignore model files
+# Ignore all .h5 files
 *.h5
-/models/
-/tmp/
-*.pkl
+
+# But allow model_05.h5 in the root (if any)
+!model_05.h5
+
+# Ignore all files in tmp/ directory
+/tmp/*
+
+# Except allow model_05.h5 in tmp/
+!/tmp/model_05.h5
