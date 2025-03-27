@@ -1,4 +1,4 @@
-# **ai_vs_human**
+# **AI vs Human classification**
 ## **Project 4**: AI Generated vs Human Image Detection
 
 ## **Table of Contents**
