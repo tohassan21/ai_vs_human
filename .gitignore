@@ -177,7 +177,8 @@ cython_debug/
 /Resources/TrainingImages/*/*
 /Resources/TestingImages/*/*
 
+# Ignore model files
 *.h5
-!model_03.h5
-!model_04.h5
-*.keras
+/models/
+/tmp/
+*.pkl
