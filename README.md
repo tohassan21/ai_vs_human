@@ -109,9 +109,10 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 [pandas](https://pandas.pydata.org/)  
 [numpy](https://numpy.org/doc/stable/user/quickstart.html)  
 [TensorFlow/Keras](https://www.tensorflow.org/guide/keras)  
-[Flask](https://flask.palletsprojects.com/en/stable/) 
-
-
+[Flask](https://flask.palletsprojects.com/en/stable/)  
+[AWS S3](https://aws.amazon.com/s3/)  
+[HEROKU](https://www.heroku.com/)  
+[Lannon's addition](../Lannon%20Low-Tech%20README.md)
 
 ## **License**
 -  [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](./LICENSE) - see the LICENSE file for details here.
