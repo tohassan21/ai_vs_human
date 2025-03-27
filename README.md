@@ -49,6 +49,8 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 - **boto3**: The Amazon Web Services (AWS) SDK for Python. It allows Python developers to write software that makes use of services like Amazon S3 and Amazon SageMaker, facilitating data storage and model deployment. **(Version: 1.34.71)**
 - **python-dotenv**: A library that reads key-value pairs from a .env file and adds them to the environment variables. This is useful for managing configuration settings, such as API keys or database URLs, without hardcoding them into your application. **(Version: 1.0.1)**
 - **werkzeug**: A comprehensive WSGI web application library. It is used by Flask and provides utilities for building web applications, including request and response handling, routing, and debugging. **(Version: 3.0.3)**
+- **AWS S3**: Amazon Web Services' Simple Storage Service (S3) is used for storing and retrieving large amounts of static files, such as images, videos, or dataset backups. It integrates with your app to manage media or file uploads.
+- **HEROKU**: A cloud platform for deploying and managing applications. It supports multiple programming languages and simplifies deployment pipelines, scaling, and configuration via CLI or dashboard.
 
 
 ## **Installation**
@@ -90,7 +92,7 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 
 **Figure 5:** Known Human image 2
 <hr style="border: 2px solid #4FA3D1; width: 100%; margin: auto;">
-<br><br>
+<br><br> 
 
 ## **Sources**
 - [Kaggle ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download) 
