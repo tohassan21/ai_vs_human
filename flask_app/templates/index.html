@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Generated vs Human-Generated Image Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #warning {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image to Classify</h1>
+
+    <!-- User Guidance Message -->
+    <p id="warning">⚠️ Please upload a <strong>square-shaped image</strong> to minimize distortion when resizing.</p>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="file">Select an image:</label>
+        <input type="file" name="file" accept="image/*" required><br><br>
+        <input type="submit" value="Upload and Predict">
+    </form>
+
+    <div id="predictionResult"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            let form = document.getElementById('uploadForm');
+            let formData = new FormData(form);
+            document.getElementById('predictionResult').innerHTML = "<p>Processing... Please wait.</p>";
+
+            let baseURL = window.location.origin;  // sets to localhost or Heroku
+
+            try {
+                let response = await fetch(`${baseURL}/predict`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                let result = await response.json();
+                let predictionDiv = document.getElementById('predictionResult');
+
+                if (result.predictions) {
+                    let output = `<h2>Prediction Result</h2><ul>`;
+                    result.predictions.forEach((pred, index) => {
+                        output += `<li><strong>${index + 1}. ${pred.label}</strong> - Confidence: ${pred.confidence.toFixed(2)}%</li>`;
+                    });
+                    output += `</ul>`;
+                    predictionDiv.innerHTML = output;
+                } else {
+                    predictionDiv.innerHTML = `<p>Error: ${result.error}</p>`;
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById('predictionResult').innerHTML = `<p>Failed to process image. Please try again.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
