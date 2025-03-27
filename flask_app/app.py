@@ -1,4 +1,4 @@
-import boto3
+iimport boto3
 import os
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -12,20 +12,19 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# AWS credentials 
+# AWS credentials and bucket name from .env
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 MODEL_PATH = "models/model_05.h5"  
-LOCAL_MODEL_PATH = "/tmp/model_05.h5"  
 
 # Set LOCAL_MODEL_PATH based on OS
 if os.name == 'nt':  # Windows
-    # Create 'tmp' folder in your current working directory if not exists
+    # Create 'tmp' folder in your current working directory if it doesn't exist
     LOCAL_MODEL_PATH = os.path.join(os.getcwd(), "tmp", "model_05.h5")
     os.makedirs(os.path.dirname(LOCAL_MODEL_PATH), exist_ok=True)
 else:
-    # On Heroku, use the absolute path in /tmp
+    # On Unix (e.g., Heroku), use the absolute path in /tmp
     LOCAL_MODEL_PATH = "/tmp/model_05.h5"
 
 # Initialize S3 client
@@ -35,10 +34,15 @@ s3 = boto3.client(
     aws_secret_access_key=AWS_SECRET_ACCESS_KEY
 )
 
-# Download model if not present locally
-if not os.path.exists(LOCAL_MODEL_PATH):
-    print("Downloading model from S3...")
-    s3.download_file(S3_BUCKET_NAME, MODEL_PATH, LOCAL_MODEL_PATH)
+# Check if a valid S3 bucket name is provided.
+# If S3_BUCKET_NAME is empty or set to a dummy value, skip downloading from S3.
+if S3_BUCKET_NAME is None or S3_BUCKET_NAME.strip() == "" or S3_BUCKET_NAME.lower() == "dummy_bucket":
+    print("No valid S3 bucket provided. Using local model file at", LOCAL_MODEL_PATH)
+else:
+    # Download model from S3 if not present locally
+    if not os.path.exists(LOCAL_MODEL_PATH):
+        print("Downloading model from S3...")
+        s3.download_file(S3_BUCKET_NAME, MODEL_PATH, LOCAL_MODEL_PATH)
 
 # Load the model
 print("Loading model...")
@@ -72,7 +76,8 @@ def predict():
         # Load and preprocess the image
         img = image.load_img(img_bytes, target_size=(255, 255))
         img_array = image.img_to_array(img)
-        img_array = np.expand_dims(img_array, axis=0) / 255
+        # Normalize the image (values 0 to 1)
+        img_array = np.expand_dims(img_array, axis=0) / 255.0
 
         # Make prediction (get raw output from the model)
         preds = model.predict(img_array)
@@ -102,7 +107,7 @@ def predict():
         else:
             return jsonify({"error": "Unexpected model output shape"}), 500
 
-        # Prepare the response
+        # Prepare the response with predictions wrapped in an array
         response = {
             "predictions": [
                 {
