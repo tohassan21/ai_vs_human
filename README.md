@@ -2,7 +2,7 @@
 ## **Project 4**: AI Generated vs Human Image Detection
 
 ## **Table of Contents**
-- [**ai\_vs\_human**](#ai_vs_human)
+- [**AI vs Human classification**](#ai-vs-human-classification)
   - [**Project 4**: AI Generated vs Human Image Detection](#project-4-ai-generated-vs-human-image-detection)
   - [**Table of Contents**](#table-of-contents)
   - [**Objective**](#objective)
@@ -112,7 +112,7 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 [Flask](https://flask.palletsprojects.com/en/stable/)  
 [AWS S3](https://aws.amazon.com/s3/)  
 [HEROKU](https://www.heroku.com/)  
-[Lannon's addition](../Lannon%20Low-Tech%20README.md)
+[Lannon's addition](Lannon%20Low-Tech%20README.md)
 
 ## **License**
 -  [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](./LICENSE) - see the LICENSE file for details here.
