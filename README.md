@@ -63,16 +63,15 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 5. Use the model_03.h5 model to test the data
 6. To test user images go to [User Flask Interface ](https://app-flask-xception-7d7b178928d0.herokuapp.com/)
 
-# Flask Deployment Instructions
+## **Flask Deployment Instructions**
 This repository contains a Flask application that classifies images as either "Human-generated" or "AI-generated" using a pre-trained TensorFlow model. The app is designed to work in both local and Heroku environments.
-## Installation
-
-### 1. **Clone the Repository (Skip this step if you already cloned the repo)**
+- ## Installation
+- ### **1. Clone the Repository (Skip this step if you already cloned the repo)**
    Open a terminal in VS Code and run:
    ```bash
    git clone https://github.com/tohassan21/ai_vs_human.git
    cd ai_vs_human
-**### 2. (Optional) Create and Activate a Virtual Environment**
+- ### **2. (Optional) Create and Activate a Virtual Environment**
 It’s recommended to use a virtual environment to manage your Python dependencies. You can create and activate one using the following commands:
 ```bash
 python -m venv venv
@@ -80,79 +79,80 @@ python -m venv venv
 venv\Scripts\activate
 # On macOS/Linux:
 source venv/bin/activate
-**### 3. Install Dependencies**
+- ### **3. Install Dependencies**
 Run the following command to install all required packages:
 ```bash
 pip install -r requirements.txt
 This command will install only the packages listed in the requirements.txt file. Any other packages not mentioned won't be installed unless they are added to that file.
 
-****## Environmental Setup****
+## **Environmental Setup**
 The application relies on AWS credentials and S3 configuration to download the model file.
-**### 1. Create a .env File**
+- ### **1. Create a .env File**
 Create a file named `.env` in the project root. You can start by copying the provided sample file:
 ```bash
 cd flask_app
 cp .env.dummy.example .env
 Ensure that your application is configured to load the environment variables from the correct location.
-**### 2. Configure the Environment Variables**
+- ### **2. Configure the Environment Variables**
 Open the `.env` file and fill in the values as needed. For example:
 ```dotenv
-# AWS credentials and S3 configuration
+
+## **AWS credentials and S3 configuration**
 AWS_ACCESS_KEY_ID=your_access_key_here
 AWS_SECRET_ACCESS_KEY=your_secret_key_here
 S3_BUCKET_NAME=your_bucket_name_here
-# If you do not have AWS credentials for local testing, you can leave the S3_BUCKET_NAME empty or use a dummy value:
-# S3_BUCKET_NAME=dummy
+*If you do not have AWS credentials for local testing, you can leave the S3_BUCKET_NAME empty or use a dummy value:
+*S3_BUCKET_NAME=dummy
 If you use dummy values (or leave S3_BUCKET_NAME empty), the application will skip the S3 download and load the model from a local file instead.
 
-**## Running the Application Locally**
-**### 1. Ensure the Model File is Available**
-- **With Valid AWS Credentials:**  
-  The app will download the model automatically from S3.
-- **Without AWS Credentials:**  
-  Manually place your model file (`model_05.h5`) into the `tmp` folder at the project root:
+## **Running the Application Locally**
+- ### **1. Ensure the Model File is Available**
+  *With Valid AWS Credentials:
+   - The app will download the model automatically from S3.
+  *Without AWS Credentials:*
+   - Manually place your model file (`model_05.h5`) into the `tmp` folder at the project root:
     ```bash
   ai_vs_human/tmp/model_05.h5
 
-**### 2. Start the Flask Application**
+### **2. Start the Flask Application**
 Open a terminal in (ensuring you’re in the project root) and run:
 python flask_app/app.py
 The app should start in debug mode and be accessible at http://localhost:5000.
 
 
-**## Deploying on Heroku**
-**### 1. Ensure Your Procfile is Set Up**
+## **Deploying on Heroku**
+- ### **1. Ensure Your Procfile is Set Up**
 Your `Procfile` should have the following line:
 ```plaintext
 web: gunicorn flask_app.app:app
 
-**### 2. Deploy to Heroku**
+### **2. Deploy to Heroku**
 Follow these steps in your terminal:
 heroku create
 git push heroku main
 
-**### 3. Set Environment Variables on Heroku**
+### **3. Set Environment Variables on Heroku**
 If you have AWS credentials, use the Heroku CLI or dashboard to set them:
 ```bash
 heroku config:set AWS_ACCESS_KEY_ID=your_access_key_here
 heroku config:set AWS_SECRET_ACCESS_KEY=your_secret_key_here
 heroku config:set S3_BUCKET_NAME=your_bucket_name_here
 
-If you don't have AWS credentials or don't want to use them for local testing or deployment, you can set S3_BUCKET_NAME to a dummy value. For example:
+*If you don't have AWS credentials or don't want to use them for local testing or deployment, you can set S3_BUCKET_NAME to a dummy value. For example:
 heroku config:set S3_BUCKET_NAME=dummy
 When S3_BUCKET_NAME is empty or set to a dummy value, the application will skip downloading the model from S3 and will use the local model file instead.
-****### 4. Access Your App****
-Your app will be available at the URL provided by Heroku.
+### **4. Access Your App**
+-Your app will be available at the URL provided by Heroku.
 
-**### Usage**
-**### 1. Open the Application in Your Browser**
+### **Usage**
+### **1. Open the Application in Your Browser**
 - **Locally:** [http://localhost:5000](http://localhost:5000)
 - **On Heroku:** Use your Heroku app’s URL
 
-**### 2. Upload an Image**
+### **2. Upload an Image**
 Click **"Select an image"** to choose a square-shaped image for best results, then click **"Upload and Predict"**.
 
-**### 3. View the Prediction**
+### **3. View the Prediction**
 The app will display the predicted label (either **"Human-generated"** or **"AI-generated"**) along with the confidence percentage.
 
 
@@ -187,8 +187,6 @@ The app will display the predicted label (either **"Human-generated"** or **"AI-
 <hr style="border: 2px solid #4FA3D1; width: 100%; margin: auto;">
 <br><br>
 
----
-
 ## **Sources**
 - [Kaggle ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download) 
 - Office Hours
@@ -198,7 +196,6 @@ The app will display the predicted label (either **"Human-generated"** or **"AI-
 - ChatGPT
 - Google
 
----
 
 ## **Links**
 [User Flask Interface 📡](https://app-flask-xception-7d7b178928d0.herokuapp.com/)  
