@@ -1,5 +1,6 @@
 # **AI vs Human classification**
 ## **Project 4**: AI Generated vs Human Image Detection
+[Project 4 Presentation PDF](Project_4_Human_vs_AI_Image_Detection.pdf)
 
 ## **Table of Contents**
 - [**AI vs Human classification**](#ai-vs-human-classification)
@@ -10,6 +11,26 @@
   - [**Dataset**](#dataset)
   - [**Technologies / Dependencies Needed and Used**](#technologies--dependencies-needed-and-used)
   - [**Installation**](#installation)
+  - [**Flask Deployment Instructions**](#flask-deployment-instructions)
+    - [**1. Clone the Repository (Skip this step if you already cloned the repo)**](#1-clone-the-repository-skip-this-step-if-you-already-cloned-the-repo)
+    - [**2. (Optional) Create and Activate a Virtual Environment**](#2-optional-create-and-activate-a-virtual-environment)
+- [On Windows:](#on-windows)
+- [On macOS/Linux:](#on-macoslinux)
+    - [**3. Install Dependencies**](#3-install-dependencies)
+  - [**Environmental Setup**](#environmental-setup)
+    - [**1. Create a .env File**](#1-create-a-env-file)
+    - [**2. Configure the Environment Variables**](#2-configure-the-environment-variables)
+  - [**AWS credentials and S3 configuration**](#aws-credentials-and-s3-configuration)
+  - [**Running the Application Locally**](#running-the-application-locally)
+    - [**2. Start the Flask Application**](#2-start-the-flask-application)
+  - [**Deploying on Heroku**](#deploying-on-heroku)
+    - [**2. Deploy to Heroku**](#2-deploy-to-heroku)
+    - [**3. Set Environment Variables on Heroku**](#3-set-environment-variables-on-heroku)
+    - [**4. Access Your App**](#4-access-your-app)
+    - [**Usage**](#usage)
+    - [**1. Open the Application in Your Browser**](#1-open-the-application-in-your-browser)
+    - [**2. Upload an Image**](#2-upload-an-image)
+    - [**3. View the Prediction**](#3-view-the-prediction)
   - [**Visualizations**](#visualizations)
   - [**Sources**](#sources)
   - [**Links**](#links)
@@ -64,43 +85,54 @@ Due to size limitations, the dataset is not stored directly in this repository. 
 6. To test user images go to [User Flask Interface ](https://app-flask-xception-7d7b178928d0.herokuapp.com/)
 
 ## **Flask Deployment Instructions**
+
 This repository contains a Flask application that classifies images as either "Human-generated" or "AI-generated" using a pre-trained TensorFlow model. The app is designed to work in both local and Heroku environments.
-- ## Installation
-- ### **1. Clone the Repository (Skip this step if you already cloned the repo)**
-   Open a terminal in VS Code and run:
-   ```bash
-   git clone https://github.com/tohassan21/ai_vs_human.git
-   cd ai_vs_human
-- ### **2. (Optional) Create and Activate a Virtual Environment**
-It’s recommended to use a virtual environment to manage your Python dependencies. You can create and activate one using the following commands:
+
+---
+
+### **1. Clone the Repository (Skip this step if you already cloned the repo)**
+
+Open a terminal in VS Code and run:
+
 ```bash
+git clone https://github.com/tohassan21/ai_vs_human.git
+cd ai_vs_human
+```
+
+### **2. (Optional) Create and Activate a Virtual Environment**  
+It’s recommended to use a virtual environment to manage your Python dependencies. You can create and activate one using the following commands:  
+```bash  
 python -m venv venv
+```
 # On Windows:
 venv\Scripts\activate
 # On macOS/Linux:
 source venv/bin/activate
-- ### **3. Install Dependencies**
-Run the following command to install all required packages:
+### **3. Install Dependencies**  
+Run the following command to install all required packages:  
 ```bash
 pip install -r requirements.txt
-This command will install only the packages listed in the requirements.txt file. Any other packages not mentioned won't be installed unless they are added to that file.
+```
+This command will install only the packages listed in the requirements.txt file. Any other packages not mentioned won't be installed unless they are added to that file.  
 
 ## **Environmental Setup**
 The application relies on AWS credentials and S3 configuration to download the model file.
-- ### **1. Create a .env File**
+### **1. Create a .env File**
 Create a file named `.env` in the project root. You can start by copying the provided sample file:
 ```bash
 cd flask_app
 cp .env.dummy.example .env
+```
 Ensure that your application is configured to load the environment variables from the correct location.
-- ### **2. Configure the Environment Variables**
+### **2. Configure the Environment Variables**
 Open the `.env` file and fill in the values as needed. For example:
-```dotenv
 
 ## **AWS credentials and S3 configuration**
+```dotenv
 AWS_ACCESS_KEY_ID=your_access_key_here
 AWS_SECRET_ACCESS_KEY=your_secret_key_here
 S3_BUCKET_NAME=your_bucket_name_here
+```
 *If you do not have AWS credentials for local testing, you can leave the S3_BUCKET_NAME empty or use a dummy value:
 *S3_BUCKET_NAME=dummy
 If you use dummy values (or leave S3_BUCKET_NAME empty), the application will skip the S3 download and load the model from a local file instead.
@@ -116,7 +148,9 @@ If you use dummy values (or leave S3_BUCKET_NAME empty), the application will sk
 
 ### **2. Start the Flask Application**
 Open a terminal in (ensuring you’re in the project root) and run:
+```bash
 python flask_app/app.py
+```
 The app should start in debug mode and be accessible at http://localhost:5000.
 
 
@@ -125,11 +159,14 @@ The app should start in debug mode and be accessible at http://localhost:5000.
 Your `Procfile` should have the following line:
 ```plaintext
 web: gunicorn flask_app.app:app
+```
 
 ### **2. Deploy to Heroku**
 Follow these steps in your terminal:
+```
 heroku create
 git push heroku main
+```
 
 ### **3. Set Environment Variables on Heroku**
 If you have AWS credentials, use the Heroku CLI or dashboard to set them:
@@ -137,6 +174,7 @@ If you have AWS credentials, use the Heroku CLI or dashboard to set them:
 heroku config:set AWS_ACCESS_KEY_ID=your_access_key_here
 heroku config:set AWS_SECRET_ACCESS_KEY=your_secret_key_here
 heroku config:set S3_BUCKET_NAME=your_bucket_name_here
+```
 
 *If you don't have AWS credentials or don't want to use them for local testing or deployment, you can set S3_BUCKET_NAME to a dummy value. For example:
 heroku config:set S3_BUCKET_NAME=dummy
@@ -206,11 +244,14 @@ The app will display the predicted label (either **"Human-generated"** or **"AI-
 [Flask](https://flask.palletsprojects.com/en/stable/)  
 [AWS S3](https://aws.amazon.com/s3/)  
 [HEROKU](https://www.heroku.com/)  
-[Lannon's addition](Lannon%20Low-Tech%20README.md)
+[Lannon's addition](Lannon%20Low-Tech%20README.md)  
+[Project 4 PDF](Project_4_Human_vs_AI_Image_Detection.pdf)
+
 
 ---
 ## **License**
 -  [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](./LICENSE) - see the LICENSE file for details here.
  
 ![License](https://img.shields.io/badge/license-GPL%203-blue)
+
 
