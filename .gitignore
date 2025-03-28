@@ -187,4 +187,5 @@ cython_debug/
 /tmp/*
 
 # Except allow model_05.h5 in tmp/
-!/tmp/model_05.h5
+!/tmp/model_05.h5Resources/model_01.keras
+Resources/test_data_v2/
