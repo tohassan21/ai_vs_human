@@ -176,7 +176,7 @@ Click **"Select an image"** to choose a square-shaped image for best results, th
 
 The app will display the predicted label (either **"Human-generated"** or **"AI-generated"**) along with the confidence percentage.
 
-
+---
 
 ## **Visualizations**
 <img src="Images/Flask_app.png" width="500" />  
@@ -207,7 +207,9 @@ The app will display the predicted label (either **"Human-generated"** or **"AI-
 
 **Figure 5:** Known Human image 2
 <hr style="border: 2px solid #4FA3D1; width: 100%; margin: auto;">
-<br><br> 
+<br><br>
+
+---
 
 ## **Sources**
 - [Kaggle ai-vs-human-generated-dataset](https://www.kaggle.com/datasets/alessandrasala79/ai-vs-human-generated-dataset?resource=download) 
@@ -217,6 +219,8 @@ The app will display the predicted label (either **"Human-generated"** or **"AI-
 - Xpert Learning Assistant
 - ChatGPT
 - Google
+
+---
 
 ## **Links**
 [User Flask Interface 📡](https://app-flask-xception-7d7b178928d0.herokuapp.com/)  
@@ -229,6 +233,7 @@ The app will display the predicted label (either **"Human-generated"** or **"AI-
 [HEROKU](https://www.heroku.com/)  
 [Lannon's addition](../Lannon%20Low-Tech%20README.md)
 
+---
 ## **License**
 -  [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](./LICENSE) - see the LICENSE file for details here.
  
